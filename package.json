@@ -1,26 +1,10 @@
 {
-  "name": "numble",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode=development",
     "build": "webpack --mode=production",
     "watch": "webpack --watch",
-    "start": "webpack --watch && webpack-dev-server"
+    "start": "webpack server"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Junhyeong-B/NUMBLE_Challenge.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Junhyeong-B/NUMBLE_Challenge/issues"
-  },
-  "homepage": "https://github.com/Junhyeong-B/NUMBLE_Challenge#readme",
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",

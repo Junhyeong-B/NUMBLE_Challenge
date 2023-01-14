@@ -10,8 +10,9 @@ module.exports = {
       title: '넘블러 신년메세지 주고받기',
       lang: 'ko-KR',
       meta: {
-        description: '넘블러 신년메세지 주고받기 챌린지입니다..',
+        description: '넘블러 신년메세지 주고받기 챌린지입니다.',
       },
+      template: './src/index.html',
     }),
   ],
   output: {
@@ -47,7 +48,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+    extensions: ['.ts', '.js'],
   },
   devServer: {
     static: {
