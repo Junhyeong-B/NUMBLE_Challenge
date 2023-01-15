@@ -1,12 +1,5 @@
-import "./style.css";
+import App from './App';
 
-function component() {
-  const element = document.createElement("div");
+const target: HTMLDivElement = document.querySelector('#root');
 
-  element.innerText = "Hello";
-  element.classList.add("hello");
-
-  return element;
-}
-
-document.body.appendChild(component());
+new App({ target });
