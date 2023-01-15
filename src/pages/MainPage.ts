@@ -35,12 +35,10 @@ class MainPage {
   }
 
   async fetchMessageData() {
-    const response = await request<{ code: number; data: { posts: Post[] } }>(
-      '/posts',
-      {
-        method: 'GET',
-      }
-    );
+    const response = await request<{
+      code: number;
+      data: { posts: Post[] };
+    }>('/posts');
 
     if (!response) {
       return;
