@@ -1,5 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const webpack = require('webpack');
+const dotenv = require('dotenv').config({
+  path: path.resolve(__dirname, '.env'),
+});
 
 module.exports = {
   entry: './src/index.ts',
@@ -13,6 +17,9 @@ module.exports = {
         description: '넘블러 신년메세지 주고받기 챌린지입니다.',
       },
       template: './src/index.html',
+    }),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(dotenv.parsed),
     }),
   ],
   output: {
