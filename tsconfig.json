@@ -7,7 +7,13 @@
     "target": "es5",
     "jsx": "react",
     "allowJs": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "components/*": ["src/components/*"],
+      "pages/*": ["src/pages/*"],
+      "utils/*": ["src/utils/*"]
+    }
   },
-  "include": ["src/*.ts"] // 사용할 폴더 및 파일
+  "include": ["src/*.ts"]
 }
