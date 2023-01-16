@@ -1,5 +1,6 @@
-import MessageList, { Post } from 'components/MessageList';
-import { request } from 'utils/api';
+import MessageList from 'components/MessageList';
+import { getPosts } from 'utils/api';
+import type { Post } from 'utils/type';
 
 interface Props {
   target: HTMLElement;
@@ -35,10 +36,7 @@ class MainPage {
   }
 
   async fetchMessageData() {
-    const response = await request<{
-      code: number;
-      data: { posts: Post[] };
-    }>('/posts');
+    const response = await getPosts();
 
     if (!response) {
       return;
