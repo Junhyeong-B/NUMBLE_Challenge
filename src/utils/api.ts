@@ -33,10 +33,7 @@ export const request = async <T>(
 };
 
 export const getPosts = async () => {
-  return await request<{
-    code: number;
-    data: { posts: Post[] };
-  }>('/posts');
+  return await request<{ code: number; data: { posts: Post[] } }>('/posts');
 };
 
 export const getRandomImage = async () => {
@@ -64,4 +61,8 @@ export const createPost = async (body: {
       'Content-Type': 'application/json',
     },
   });
+};
+
+export const getPostDetail = async (postId: string) => {
+  return await request<{ code: number; data: PostDetail }>(`/post/${postId}`);
 };

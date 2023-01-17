@@ -1,6 +1,7 @@
 import MainPage from 'pages/MainPage';
 import CreatePostPage from 'pages/CreatePostPage';
-import { initRouter } from 'utils/router';
+import PostDetailPage from 'pages/PostDetailPage';
+import { initRouter, replace } from 'utils/router';
 
 interface Props {
   target: HTMLDivElement;
@@ -18,17 +19,21 @@ class App {
     this.root.innerHTML = '';
     const { pathname } = window.location;
 
-    switch (pathname) {
-      case '/':
-        new MainPage({ target: this.root });
-        break;
+    if (pathname === '/') {
+      new MainPage({ target: this.root });
+    } else if (pathname === '/create') {
+      new CreatePostPage({ target: this.root });
+    } else if (pathname.startsWith('/post/')) {
+      const postId = pathname.split('/')[2];
 
-      case '/create':
-        new CreatePostPage({ target: this.root });
-        break;
-
-      default:
+      if (isNaN(Number(postId))) {
+        replace('/');
         return;
+      }
+
+      new PostDetailPage({ target: this.root, postId });
+    } else {
+      replace('/');
     }
   }
 }
