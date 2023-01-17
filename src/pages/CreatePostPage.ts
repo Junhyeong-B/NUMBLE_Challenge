@@ -1,3 +1,4 @@
+import GoBackButton from 'components/GoBackButton';
 import { createPost, getRandomImage } from 'utils/api';
 import { replace } from 'utils/router';
 
@@ -14,6 +15,7 @@ class CreatePostPage {
   state: State;
   component: HTMLFormElement;
   image: string;
+  goBackButton: GoBackButton;
   constructor({ target }: Props) {
     this.state = {
       title: '',
@@ -21,6 +23,7 @@ class CreatePostPage {
     };
 
     this.component = document.createElement('form');
+    this.goBackButton = new GoBackButton({ target: this.component, to: '/' });
     target.insertAdjacentElement('beforeend', this.component);
 
     this.getRandomImage();
@@ -36,6 +39,7 @@ class CreatePostPage {
       <input id="CreatePost__Content" name="content" type="text">
       <button id="CreatePost__Submit" type="submit">등록하기</button>
     `;
+    this.goBackButton.render('beforebegin');
   }
 
   addHandleChangeEvent() {
@@ -79,12 +83,6 @@ class CreatePostPage {
       ...this.state,
       image: this.image,
     });
-
-    console.log({
-      ...this.state,
-      image: this.image,
-    });
-    console.log(response);
 
     if (!response) {
       return;
