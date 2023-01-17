@@ -5,6 +5,8 @@ const dotenv = require('dotenv').config({
   path: path.resolve(__dirname, '.env'),
 });
 
+console.log(dotenv);
+
 module.exports = {
   entry: './src/index.ts',
   mode: 'development',
@@ -68,5 +70,8 @@ module.exports = {
     },
     open: true,
     port: 'auto',
+    historyApiFallback: {
+      index: 'index.html',
+    },
   },
 };

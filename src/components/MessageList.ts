@@ -1,11 +1,4 @@
-export interface Post {
-  postId: string;
-  title: string;
-  content: string;
-  image: string;
-  createdAt: string;
-  updatedAt: string;
-}
+import type { Post } from 'utils/type';
 
 interface Props {
   target: HTMLElement;
